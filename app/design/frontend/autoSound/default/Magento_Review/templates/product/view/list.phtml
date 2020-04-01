@@ -1,0 +1,101 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magento\Review\Block\Product\View\ListView $block */
+
+$_items = $block->getReviewsCollection()->getItems();
+$format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+?>
+<?php if (count($_items)) : ?>
+<div class="block review-list" id="customer-reviews">
+    <?php if (!$block->getHideTitle()) : ?>
+        <div class="block-title">
+            <strong><?= $block->escapeHtml(__('Customer Reviews')) ?></strong>
+        </div>
+    <?php endif ?>
+    <div class="block-content">
+        <ol class="items review-items">
+        <?php foreach ($_items as $_review) : ?>
+            <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+                <div class="wrap-content">
+                    <div class="review-item-name">
+                        <span class="review-name-value"><?= $block->escapeHtml($_review->getNickname()) ?></span>
+                        <time class="review-details-value" datetime="<?= $block->escapeHtmlAttr($block->formatDate($_review->getCreatedAt(), $format)) ?>"><?= $block->escapeHtml($block->formatDate($_review->getCreatedAt(), $format)) ?></time>
+                    </div>
+                    <div class="review-item-text">
+                        <?= /* @noEscape */ nl2br($block->escapeHtml($_review->getDetail())) ?>
+                    </div>
+                    <div class="review-item-list">
+                        <div class="advantages">
+                            <span class="list-title"><?= __('advantages')?></span>
+                            <span class="list-text"><?= __('advantages-text')?></span>
+                        </div>
+                        <div class="disadvantages">
+                            <span class="list-title"><?= __('disadvantages')?></span>
+                            <span class="list-text"><?= __('disadvantages-text')?></span>
+                        </div>
+                    </div>
+                    <div class="review-item-footer">
+                            <div class="reply">
+                                <div class="reply-count">
+                                    <p>
+                                        <span><?= __('1')?></span>
+                                        <span><?= __('Reply')?></span>
+                                    </p>
+                                </div>
+                                <div class="reply-answer"><?=__('answer')?></div>
+                            </div>
+                            <div class="like">
+                                <div class="like-title"><?=__('Was this review helpful to you?')?></div>
+                                <div class="like-icons">
+                                    <div class="like">
+                                        <img class="like-icon" src="<?php echo $this->getViewFileUrl('images/like.svg'); ?>" alt="like" />
+                                        <div class="like-count"><?=__('14')?></div>
+                                    </div>
+                                    <div class="dislike">
+                                        <img class="dislike-icon" src="<?php echo $this->getViewFileUrl('images/like.svg'); ?>" alt="like" />
+                                        <div class="dislike-count"><?=__('3')?></div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="rating">
+                    <strong><?= $block->escapeHtml(__('Rating Title')) ?></strong>
+                    <?php foreach ($_review->getRatingVotes() as $_vote) : ?>
+                        <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            <div class="rating-result">
+                                <meta itemprop="worstRating" content = "1"/>
+                                <meta itemprop="bestRating" content = "100"/>
+                                <span style="width:<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
+                                    <span itemprop="ratingValue"><?= $block->escapeHtml($_vote->getPercent() / 20) ?></span>
+                                </span>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ol>
+        <div class="btn-container">
+            <span class="expand-btn hide"><?= __('Hide') ?></span>
+            <span class="expand-btn active"><?= __('show all review') ?></span>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<script type="text/x-magento-init">
+            {
+                ".block-content": {
+                    "AutoSound_Expand/js/expand-service": {
+                        "parentElem": ".block-content",
+                        "expandContainer": ".review-items",
+                        "expandBtnOpen": ".expand-btn.active",
+                        "expandBtnHide": ".expand-btn.hide"
+                    }
+                }
+            }
+</script>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Cms\Block\Block" name="autosound.topmenu" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">autosound.topmenu</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="autosound.city" after="autosound.topmenu">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">autosound.city</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <move element="store_language" destination="header.panel" after="autosound.topmenu" />
+        <move element="top.search" destination="header-wrapper" after="logo" />
+        <move element="autosound.topphone" destination="header-wrapper" after="top.search" />
+        <move element="autosound.callback" destination="header-wrapper" after="autosound.topphone" />
+        <move element="catalog.compare.link" destination="header.navigation" before="minicart" />
+        <move element="wish-list-link" destination="header.navigation" before="catalog.compare.link" />
+        <move element="autosound.garage" destination="header.navigation" before="wish-list-link" />
+        <move element="minicart" destination="header.navigation" after="-" />
+        <move element="autosound.navigation" destination="store.menu" after="catalog.topnav"/>
+        <move element="copyright" destination="autosound.copyright" before="autosound.developer"/>
+        <block class="Magento\Cms\Block\Block" name="autosound.navigation">
+            <arguments>
+                <argument name="block_id" xsi:type="string">autosound.navigation</argument>
+            </arguments>
+        </block>
+        <referenceBlock name="my-account-link" remove="true" />
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Cms\Block\Block" name="autosound.topphone">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">autosound.topphone</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="autosound.callback">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">autosound.callback</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="autosound.garage">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">autosound.garage</argument>
+                </arguments>
+            </block>
+            <container name="header.navigation" htmlTag="ul" htmlClass="header-navigation" after="-"/>
+        </referenceContainer>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/magento-logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">234</argument>
+                <argument name="logo_img_height" xsi:type="number">112</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="report.bugs" remove="true" />
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceContainer name="footer">
+            <container name="autosound.footer.link" htmlTag="div" htmlClass="footer-link">
+                <block class="Magento\Cms\Block\Block" name="autosound.foot.link">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">autosound.foot.link</argument>
+                    </arguments>
+                </block>
+                <container name="autosound.copyright" htmlTag="div" htmlClass="copyright">
+                    <block class="Magento\Cms\Block\Block" name="autosound.developer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">autosound.developer</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+            <container name="autosound.footer.contact.section" htmlTag="div" htmlClass="social-footer-link">
+                <block class="Magento\Cms\Block\Block" name="autosound.social.media">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">autosound.social.media</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,75 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+?>
+<?php
+$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$_product = $block->getProduct();
+?>
+
+<?php if ($_additional = $block->getAdditionalData()) : ?>
+    <div class="additional-attributes-wrapper table-wrapper">
+        <p class="desc-title"><?= __('product specifications') ?></p>
+        <div class="expand-container">
+            <div class="data additional-attributes expand-service">
+                <?php foreach ($_additional as $_data) : ?>
+                    <div class="attribute">
+                        <span class="col label" scope="row"><?= $block->escapeHtml($_data['label']) ?></span>
+                        <span class="col data" data-th="<?= $block->escapeHtmlAttr($_data['label']) ?>">
+                        <?= /* @noEscape */ $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?>
+                    </span>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="btn-container">
+                <span class="expand-btn hide"><?= __('Hide') ?></span>
+                <span class="expand-btn active"><?= __('Open') ?></span>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+<div class="title-description">
+    <p><?= __('Description products') ?></p>
+</div>
+<div class="expand-container-description">
+    <div class="std">
+        <?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'short_description') ?>
+        <?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'short_description') ?>
+    </div>
+    <div class="btn-container">
+        <span class="expand-btn-desc hide"><?= __('Hide') ?></span>
+        <span class="expand-btn-desc active"><?= __('Open deskription') ?></span>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+            {
+                ".expand-container": {
+                    "AutoSound_Expand/js/expand-service": {
+                        "parentElem": ".expand-container",
+                        "expandContainer": ".expand-service",
+                        "expandBtnOpen": ".expand-btn.active",
+                        "expandBtnHide": ".expand-btn.hide"
+                    }
+                },
+                ".expand-container-description": {
+                    "AutoSound_Expand/js/expand-service": {
+                        "parentElem": ".expand-container-description",
+                        "expandContainer": ".std",
+                        "expandBtnOpen": ".expand-btn-desc.active",
+                        "expandBtnHide": ".expand-btn-desc.hide"
+                    }
+                }
+            }
+</script>

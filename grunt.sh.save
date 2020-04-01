@@ -1,0 +1,5 @@
+sudo chmod -R 777 /var/www/html/			
+grunt clean
+grunt exec:autoSound
+grunt less:autoSound
+sudo chmod -R 777 /var/www/html

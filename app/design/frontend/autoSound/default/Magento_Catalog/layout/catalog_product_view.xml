@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.info.sku" destination="page.main.title" after="-"/>
+        <container name="autosound.review" htmlTag="div" htmlClass="review"/>
+        <move element="autosound.review" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="autosound.review"/>
+        <move element="product.info.stock.sku" destination="autosound.review"/>
+        <container name="autosound.product.details" htmlTag="div" htmlClass="product-details"/>
+        <move element="autosound.product.details" destination="product.info.main" after="autosound.review"/>
+        <move element="product.info.price" destination="autosound.product.details" />
+        <move element="product.info.overview" destination="autosound.product.details" before="product.info.social"/>
+        <move element="product.info.social" destination="autosound.product.details" after="product.info.overview" />
+        <move element="productalert.stock" destination="autosound.product.details" after="product.info.price" />
+        <move element="product.info.social.media" destination="product.info.social" before="-" />
+        <move element="catalog.product.related" destination="content" after="product.info.media"/>
+        <block class="Magento\Cms\Block\Block" name="autosound.questions">
+            <arguments>
+                <argument name="block_id" xsi:type="string">autosound.questions</argument>
+            </arguments>
+        </block>
+        <move element="autosound.questions" destination="autosound.review" after="-" />
+        <referenceBlock name="view.addto.wishlist" remove="true" />
+        <referenceContainer name="product.info.social">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.social.media" template="Magento_Catalog::product/view/socialmedia.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="sort_order" xsi:type="string">30</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
