@@ -233,6 +233,7 @@ return [
         'Amazon_Core' => 1,
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
+        'AutoSound_Discount' => 1,
         'AutoSound_Expand' => 1,
         'AutoSound_Gallery' => 1,
         'AutoSound_PriceCurrency' => 1,

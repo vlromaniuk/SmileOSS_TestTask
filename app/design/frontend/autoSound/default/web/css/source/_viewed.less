@@ -4,9 +4,31 @@
 
         .block-title{
             margin: 0 7px;
+            display: flex;
+            align-items: center;
             strong{
                 font-size: 28px;
                 font-weight: 700;
+                letter-spacing: 0.6px;
+                margin: 0 59px 0 0;
+            }
+            span{
+                text-decoration: underline;
+                position: relative;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                
+                &::after{
+                    content: '';
+                    position: absolute;
+                    background: url("@{baseDir}images/expand.svg");
+                    display: block;
+                    right: -20px;
+                    top: 9px;
+                    width: 11px;
+                    height: 8px;
+                    transform: rotate(265deg);
+                }
             }
         }
         .block-content{
@@ -56,14 +78,113 @@
                                 }
 
                                 .product-item-details{
-                                    padding: 2px 20px;
-                                    line-height: 16.6px;
-                                    letter-spacing: -0.6px;
+                                    padding: 6px 11px 0 19px;
+                                    .title{
+                                        line-height: 16.7px;
+                                    }
+                                    .availability{
+                                        padding-top: 8px;
 
-                                    .product-item-name{
-                                        max-height: 50px;
-                                        padding: 0 31px 0 0;
-                                        overflow: hidden;
+                                        .stock{
+                                            font-size: 12px;
+                                            letter-spacing: 0.5px;
+
+                                            &.available{
+                                                color: @autosound-color-Ocean-Green;
+                                                position: relative;
+                                                letter-spacing: .3px;
+                                                padding-left: 20px;
+
+                                                &::before{
+                                                    content: '';
+                                                    position: absolute;
+                                                    width: 13px;
+                                                    height: 8px;
+                                                    background: url("@{baseDir}images/avialible.svg");
+                                                    top: 6px;
+                                                    left: 0px;
+                                                }
+                                            }
+
+                                            &.unavailable{
+                                                color: @autosound-color-Torch-Red;
+                                            }
+                                        }
+                                    }
+                                    .price{
+                                        padding-top: 1px;
+
+                                        .max-price{
+                                            font-size: 21px;
+                                            font-weight: 700;
+                                            span{
+                                                font-size: 14px;
+                                            }
+                                        }
+
+                                        .final-price{
+                                           font-size: 14px;
+                                            font-weight: 700;
+                                            span{
+                                                font-size: 10px;
+                                            }
+                                        }
+                                    }
+
+                                    .addtocart{
+                                        display: flex;
+                                        padding: 17px 0 0 1px;
+
+                                        .actions-primary{
+                                            button{
+                                                padding: 12px 27px;
+                                                background-color: @autosound-color-Torch-Red;
+                                                border-radius: 0;
+                                                border: none;
+                                                font-size: 14px;
+                                                font-weight: 700;
+                                            }
+                                        }
+
+                                        .product-item-actions{
+                                            .actions-secondary{
+                                                padding-left: 18px;
+                                                margin-top: -2px;
+
+                                                button::before{
+                                                    content: '';
+                                                    width: 25px;
+                                                    height: 18px;
+                                                    background: url("@{baseDir}images/compare.svg");
+                                                    background-size: cover;
+                                                }
+                                            }
+                                        }
+
+                                        .product.alert.stock{
+                                            text-align: center;
+                                            border: 1px solid @autosound-color-Torch-Red;
+                                            padding: 0 17px;
+                                            max-height: 37px;
+                                        }
+
+                                    }
+                                    .product-info-price{
+                                        padding: 17px 0 0 8px;
+
+                                        .product-reviews-summary{
+                                            display: flex;
+                                            .rating-summary{
+                                                margin: 0 32px 0 0;
+                                            }
+                                            .reviews-actions{
+                                                margin: 0;
+
+                                                &::before{
+                                                    left: -19px;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

@@ -165,11 +165,11 @@
             }
 
             .price-box {
-                margin: @indent__s 0 @indent__m;
+                margin: 0 0 4.5px 7px;
                 display: flex;
 
                 .price {
-                    .lib-font-size(14);
+                    .lib-font-size(30);
                     font-weight: @font-weight__bold;
                     white-space: nowrap;
                 }
@@ -180,6 +180,19 @@
                     &:after {
                         content: ':';
                     }
+                }
+
+                .sales{
+                    position: absolute;
+                    z-index: 10;
+                    top: 17px;
+                    left: 7px;
+                    letter-spacing: 0.3px;
+                    padding: 5px 13px;
+                    border-radius: 5px;
+                    background-color: @autosound-color-Coral;
+                    color: @autosound-color-White;
+                    font-weight: 700;
                 }
             }
 

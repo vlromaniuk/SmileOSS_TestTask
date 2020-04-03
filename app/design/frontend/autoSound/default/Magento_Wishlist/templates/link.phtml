@@ -10,7 +10,7 @@
     <img src="<?= $block->getViewFileUrl('images/whishlist.svg');  ?>" alt="wishlist">
     <a <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $block->escapeHtml($block->getLabel()) ?>
         <!-- ko if: wishlist().counter -->
-        <span data-bind="text: wishlist().counter" class="counter qty"></span>
+        <span data-bind="text: wishlist().items.length" class="counter qty"></span>
         <!-- /ko -->
     </a>
 </li>

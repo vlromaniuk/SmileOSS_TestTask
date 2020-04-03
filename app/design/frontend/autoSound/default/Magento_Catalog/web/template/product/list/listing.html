@@ -1,15 +1,10 @@
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
 <div if="hasData()"
      class="block" css="additionalClasses">
     <div class="block-title">
         <strong role="heading"
                 aria-level="2"
                 text="label"/>
+            <!-- ko i18n: "all recent product"--><!-- /ko -->
     </div>
     <div class="block-content">
         <div css="'products-' + displayMode">
@@ -19,26 +14,76 @@
                         <fastForEach args="data: getRegion('general-area'), as: '$col'" >
                             <render args="$col.getBody()"/>
                         </fastForEach>
-
                         <div class="product-item-details">
                             <fastForEach args="data: getRegion('details-area'), as: '$col'" >
-                                <render args="$col.getBody()"/>
                             </fastForEach>
-
-                            <div if="getRegion('action-primary-area')().length || getRegion('action-secondary-area')().length"
-                                 class="product-item-actions">
-                                <div class="actions-primary" if="getRegion('action-primary-area')().length">
+                            <div class="title">
+                                <!-- ko i18n: $row().name--><!-- /ko -->
+                            </div>
+                            <div class="availability">
+                                <!--ko if: $row().is_salable == ""-->
+                                <span class="stock unavailable">
+                                    <!-- ko i18n: "out of stock"--><!-- /ko -->
+                                </span>
+                                <!-- /ko -->
+                                <!--ko ifnot: $row().is_salable == ""-->
+                                <span class="stock available">
+                                    <!-- ko i18n: "stock"--><!-- /ko -->
+                                </span>
+                                <!-- /ko -->
+                            </div>
+                            <div class="price">
+                                <span class="max-price">
+                                    <!-- ko text: $row().price_info.regular_price--><!-- /ko -->
+                                    <span><!-- ko i18n: "uah"--><!-- /ko --></span>
+                                </span>
+                                <!--ko if: $row().price_info.final_price < $row().price_info.regular_price-->
+                                <span class="final-price">
+                                    <!-- ko text: $row().price_info.final_price--><!-- /ko -->
+                                    <span><!-- ko i18n: "uah"--><!-- /ko --></span>
+                                </span>
+                                <!-- /ko -->
+                            </div>
+                            <div class="addtocart">
+                                <!--ko if: $row().is_salable-->
+                                <div class="actions-primary">
                                     <fastForEach args="data: getRegion('action-primary-area'), as: '$col'" >
                                         <render args="$col.getBody()"/>
                                     </fastForEach>
                                 </div>
+                                <!-- /ko -->
+                                <!--ko ifnot: $row().is_salable -->
+                                    <div class="product alert stock">
+                                    <a href="#" title="Сообщить о поступлении" class="action alert">
+                                        <!-- ko i18n: "alert of stock"--><!-- /ko -->
+                                    </a>
+                                    </div>
+                                <!-- /ko -->
 
-                                <div if="getRegion('action-secondary-area')().length"
-                                     class="actions-secondary"
-                                     data-role="add-to-links">
-                                    <fastForEach args="data: getRegion('action-secondary-area'), as: '$col'" >
-                                        <render args="$col.getBody()"/>
-                                    </fastForEach>
+                                <div if="getRegion('action-primary-area')().length || getRegion('action-secondary-area')().length"
+                                     class="product-item-actions">
+                                    <div if="getRegion('action-secondary-area')().length"
+                                         class="actions-secondary"
+                                         data-role="add-to-links">
+                                        <fastForEach args="data: getRegion('action-secondary-area'), as: '$col'" >
+                                            <render args="$col.getBody()"/>
+                                        </fastForEach>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info-price">
+                                <div class="product-reviews-summary">
+                                    <div class="rating-summary">
+                                        <div class="rating-result">
+                                            <span>&nbsp;</span>
+                                        </div>
+                                    </div>
+                                    <div class="reviews-actions">
+                                        <a href="#" class="action view">
+                                            <span>32</span>&nbsp;
+                                            <!-- ko i18n: "Review"--><!-- /ko -->
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
