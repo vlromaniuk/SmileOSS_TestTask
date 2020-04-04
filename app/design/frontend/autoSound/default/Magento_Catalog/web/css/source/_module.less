@@ -1,8 +1,3 @@
-// /**
-//  * Copyright © Magento, Inc. All rights reserved.
-//  * See COPYING.txt for license details.
-//  */
-
 @product-grid-items-per-row-layout-default: 2;
 
 @product-grid-items-per-row-layout-1-screen-s: 3;
@@ -303,12 +298,20 @@
             position: relative;
 
             #tab-label-reviews-title{
-                padding: 8.5px 49px;
+                padding: 8.5px 41px;
                 margin-left: 7px;
                 font-size: 16px;
                 border: 1px solid @autosound-color-Torch-Red;
                 color: @autosound-color-Night-Rider;
                 font-weight: 700;
+
+                > span{
+                    font-size: 0;
+
+                    span.counter{
+                        font-size: 16px;
+                    }
+                }
             }
 
             button.action{

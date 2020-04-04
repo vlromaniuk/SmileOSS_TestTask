@@ -1,7 +1,8 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+autoSound default Catalog templates product view details.
+@author Vladislav Romaniuk vlad96r@protonmial.com
+@copyright 2020 Vlromaniuk
  */
 
 /** @var \Magento\Catalog\Block\Product\View\Details $block */
@@ -51,13 +52,12 @@
                 <div class="top-buttons">
                     <div class="data item title"
                          data-role="collapsible" id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>">
-                        <a class="data switch"
-                           tabindex="-1"
-                           data-toggle="trigger"
-                           href="#<?= $block->escapeUrl($alias) ?>"
-                           id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title">
+                        <span class="data switch" id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title">
+                        <?= __('Reviews'); ?>
+                        (<span>
                             <?= /* @noEscape */ $label ?>
-                        </a>
+                        </span>)
+                    </span>
                     </div>
                 </div>
                 <div class="data item content"

@@ -1,45 +1,47 @@
-.fotorama__nav-wrap.fotorama__nav-wrap--vertical{
-    max-width: 145px;
-    width: 100%;
+& when (@media-common = true) {
+    .fotorama__nav-wrap.fotorama__nav-wrap--vertical {
+        max-width: 145px;
+        width: 100%;
 
-    .fotorama__nav{
-        margin: 0;
-        width: 100% !important;
+        .fotorama__nav {
+            margin: 0;
+            width: 100% !important;
 
-        .fotorama__nav__shaft{
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
+            .fotorama__nav__shaft {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
 
-            .fotorama__thumb-border{
-                display: none;
-            }
-
-            .fotorama__nav__frame{
-                margin: 0;
-                box-sizing: border-box;
-                background-color: transparent;
-                padding: 5px 9px;
-                margin-bottom: 6px;
-
-                &:last-child{
-                    padding-right: 9px !important;
+                .fotorama__thumb-border {
+                    display: none;
                 }
 
-                .fotorama__thumb{
-                    border: 1px solid @autosound-color-Solitude;
+                .fotorama__nav__frame {
+                    margin: 0;
+                    box-sizing: border-box;
                     background-color: transparent;
+                    padding: 5px 9px;
+                    margin-bottom: 6px;
 
-                    &:hover{
-                        border: 1px solid @autosound-color-Gorse;
+                    &:last-child {
+                        padding-right: 9px !important;
+                    }
+
+                    .fotorama__thumb {
+                        border: 1px solid @autosound-color-Solitude;
+                        background-color: transparent;
+
+                        &:hover {
+                            border: 1px solid @autosound-color-Gorse;
+                        }
                     }
                 }
             }
         }
     }
-}
 
-.fotorama__stage__shaft{
-    max-width: 400px !important;
-    padding: 5px 0 0 9px;
+    .fotorama__stage__shaft {
+        max-width: 400px !important;
+        padding: 5px 0 0 9px;
+    }
 }
