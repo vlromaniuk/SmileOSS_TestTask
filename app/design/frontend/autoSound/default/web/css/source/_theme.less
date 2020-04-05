@@ -4,32 +4,67 @@
 
 //  Magento themes overrides fallback handling. Should be EMPTY.
 
+
+//
+//  Layout
+//  _____________________________________________
 @layout__max-width: 1330px;
+
+
+//
+//  Typography
+//  _____________________________________________
 @font-size__base: 13px;
+@h1__font-size-desktop: 34px;
+@h1__margin-bottom__desktop: 0;
+@h2__font-size:22px;
+@h3__font-size:20px;
+@h4__font-size:18px;
+@h5__font-size:16px;
+
+//
+//  Link
+//  _____________________________________________
 @link__color: @autosound-color-gray;
 @link__hover__color: @autosound-color-Torch-Red;
 @link__hover__text-decoration: none;
 @font-family__base: @font-family__Proxima-Nova;
+@active__color: @autosound-color-Torch-Red;
 
+//
+//  Form
+//  _____________________________________________
 @input-text__height: 46px;
 @form-element-input__border-radius: 25px;
 @button__disabled__opacity: 1;
 @form-element-input__padding: 0 23px;
 @input-text-placeholder__color: @autosound-color-Nobel;
+@form-field__vertical-indent__desktop: 29px;
 
+
+//
+//  Buttons
+//  _____________________________________________
 @button__padding: 8px 19px;
 @button__border: 2px solid @autosound-color-Gorse;
 @button__background: @autosound-color-White;
 @button__hover__background: @autosound-color-Gorse;
 @button__font-size: 12px;
 
+
+//
+//  Navigation
+//  _____________________________________________
 @navigation-desktop__background: @autosound-color-Baltic-Sea;
 @navigation__background: @autosound-color-Baltic-Sea;
 @navigation-level0-item__active__border-color: none;
-
 @submenu-desktop-item__hover__background: transparent;
 @submenu-desktop-item__hover__color: @autosound-color-Torch-Red;
 
+
+//
+//  Breadcrumbs
+//  _____________________________________________
 @breadcrumbs-current__color: @autosound-color-Nobel;
 @breadcrumbs-link__color: @autosound-color-Nobel;
 @breadcrumbs-link__hover__color: @autosound-color-Torch-Red;
@@ -40,14 +75,18 @@
 @breadcrumbs__container-margin: 0 0 21px;
 
 
-@h1__font-size-desktop: 34px;
-@h1__margin-bottom__desktop: 0;
-
+//
+//  Rating
+//  _____________________________________________
 @rating-icon__font-size: 18px;
 @rating-icon__letter-spacing: 2px;
 @rating-icon__color: @autosound-color-Silver;
 @rating-icon__active__color: @autosound-color-Gorse;
 
+
+//
+//  tabs
+//  _____________________________________________
 @tab-control__font-size: 16px;
 @tab-control__background-color: @autosound-color-White;
 @tab-control__hover__background-color: @autosound-color-White;
@@ -65,7 +104,3 @@
 @tab-content__padding-right: 6px;
 @tab-content__padding-bottom: 34px;
 @tab-content__padding-left: 6px;
-
-@form-field__vertical-indent__desktop: 29px;
-
-@active__color: @autosound-color-Torch-Red;
